@@ -12,18 +12,18 @@ Nos dois módulos, o usuário poderá ou não acionar um motor de passo implemen
 
 Para um melhor entendimento, veja os códigos contidos neste repositório, juntamente com os comentários inseridos nos códigos.
 
-#Videos e Imagens
-Imagens das ligações do motor sem botões e posterior vídeo mostrando seu funcionamento
+#Motor de Passo
+Nesta parte do projeto, foi-se implementado um código (vide MotorDePasso.py) juntamente com um hardware para o funcionamento de um motor de Passo. Para tal, foram usados um protoboard, um chip ULN 2003 para que as ligações do motor seja feita de forma direta e uma fonte de tensão de 5 Volts. Veja, nas figuras abaixo, como ocorreram as ligações, principalmente no que diz respeito ao motor com seus fios.
 
-![Alt Text](file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_144915.jpg)
+![Ligações do Motor de Passo com a fonte](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151202_144915.jpg)
 
-![Alt Text](file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_144958.jpg)
+![Ligação dos fios do motor ao chip UNL2003](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151202_144958.jpg)
 
-![Alt Text](file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_145305.mp4)
+Na pasta fotos e vídeos você poderá encontrar vídeos sobre o funcionamento do motor.
 
-A seguir, um video mostrando o funcionamento do motor através de interrupções, e com o uso de dois botões:
+Implementado o motor, foi inserido dois botões para simular a abertura e fechamento do portão. Através desses dois botões, pudemos criar interrupções para que, ao apertado, o portão seja aberto ou fechado (vide MotorDePasso.py).
 
-![Alt Text](file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_163022.mp4)
+Na pasta fotos e vídeos você poderá encontrar vídeos sobre o funcionamento do motor com interrupções.
 
 #Desenvolvedores
 Gustavo Cesar Leite de Oliveira Santos RA: 558311
