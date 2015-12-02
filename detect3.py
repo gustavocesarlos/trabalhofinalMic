@@ -50,8 +50,7 @@ while True:
 
 	if len(faces)>0:                                                        
                 cv2.imwrite('saida.png', frame)
-		#os.system("yowsup-cli demos -s 5512981213965 \"Intel Edison mandando mensagem via WhatsApp no Embarcados\" -c whatsapp.config)
-		os.system("yowsup-cli demos -s 5512981213965 \"Sua casa esta sendo invadida\" -c whatsapp.config")
+		os.system("yowsup-cli demos -s 55XXXXXXXXXXX \"Sua casa esta sendo invadida\" -c whatsapp.config")
 		stack = SendMediaStack(credential(), [(["55XXXXXXXXXXX”, "saida.png"])])
             	stack.start()
 		
