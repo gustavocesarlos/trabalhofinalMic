@@ -1,4 +1,4 @@
-# trabalhofinalMic
+# Trabalho Final Microcontroladores e Aplicações - 2015/s2
 
 Este trabalho foi desenvolvido como parte da ementa da disciplina Microcontroladores e Aplicações.
 
@@ -9,6 +9,8 @@ No módulo 1, o monitoramento ocorre quando o usuário se encontra fora de casa.
 No módulo 2, o monitoramento ocorre quando o usuário está dentro de casa. Uma pessoa toca uma campainha que é simulada por um beep eletrônico, o usuário inicia a câmera para ver quem está tocando a campainha.
 
 Nos dois módulos, o usuário poderá ou não acionar um motor de passo implementado à placa através de um botão. O funcionamento desse motor simulará a abertura de um portão. O motor de passo será acionado em um sentido e, ao terminar, funcionará no sentido inverso, simulando o fechamento do portão.
+
+Para um melhor entendimento, veja os códigos contidos neste repositório, juntamente com os comentários inseridos nos códigos.
 
 #Videos e Imagens
 Imagens das ligações do motor sem botões e posterior vídeo mostrando seu funcionamento
