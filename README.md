@@ -10,6 +10,19 @@ No módulo 2, o monitoramento ocorre quando o usuário está dentro de casa. Uma
 
 Nos dois módulos, o usuário poderá ou não acionar um motor de passo implementado à placa através de um botão. O funcionamento desse motor simulará a abertura de um portão. O motor de passo será acionado em um sentido e, ao terminar, funcionará no sentido inverso, simulando o fechamento do portão.
 
+#Videos e Imagens
+Imagens das ligações do motor sem botões e posterior vídeo mostrando seu funcionamento
+
+file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_144915.jpg
+
+file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_144958.jpg
+
+file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_145305.mp4
+
+A seguir, um video mostrando o funcionamento do motor através de interrupções, e com o uso de dois botões:
+
+file:///home/enc2012/rodolfo.barcelar/Desktop/20151202_163022.mp4
+
 #Desenvolvedores
 Gustavo Cesar Leite de Oliveira Santos RA: 558311
 
