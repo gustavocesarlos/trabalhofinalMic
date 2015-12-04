@@ -73,20 +73,18 @@ def fechaPortao(args):
         
 
 def abrePortao(args):
-:
-        myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotacao do motor
-        myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CW) #sentido horario
-        
 
+        myUln200xa.setSpeed(5) 
+        myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CW) 
+        
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Abrindo o portao...")
-        myUln200xa.stepperSteps(600)    #setando os passos do motor. Nessa forma, o motor dara 3 voltas complets
+        myUln200xa.stepperSteps(600)    
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Portao aberto.")
-
-        time.sleep(1) #programa "dorme" por 1 segundo
+        time.sleep(1)
 
 Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide cliente.py, server.py e a pasta Fotos e Vídeos. 
 
