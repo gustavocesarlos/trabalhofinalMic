@@ -53,13 +53,13 @@ No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicio
 
 No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertão um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LED mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
 
-#Funcao para interrupcao: Fecha o portao
+
 def fechaPortao(args):
-        #Setando a velocidade e a direcao do motor:
+
         myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotcao do motor
         myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CCW) #sentido anti-hora
 
-        #Para escrever no lcd e fazer o motor rodar
+
         myLcd.clear()
         myLcd.setCursor(0,0)
         
@@ -71,13 +71,13 @@ def fechaPortao(args):
         
         time.sleep(1)    #programa "dorme" por 1 segundo
         
-  #Funcao para interrupcao: Abre o portao
+
 def abrePortao(args):
-        #Setando a velocidade e a direcao do motor:
+:
         myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotacao do motor
         myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CW) #sentido horario
         
-        #Para escrever no lcd e fazer o motor rodar
+
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Abrindo o portao...")
@@ -87,7 +87,6 @@ def abrePortao(args):
         myLcd.write("Portao aberto.")
 
         time.sleep(1) #programa "dorme" por 1 segundo
-##Fim abrePortao
 
 Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide cliente.py, server.py e a pasta Fotos e Vídeos. 
 
