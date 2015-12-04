@@ -15,7 +15,7 @@ def recvall(sock, count):
     return buf
 
 # Atribui IP da estacao servidora - Intel Edison
-TCP_IP = '192.168.0.12'
+TCP_IP = ''
 # Porta de comunicacao
 TCP_PORT = 5052
 
