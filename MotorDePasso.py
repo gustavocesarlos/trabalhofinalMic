@@ -6,14 +6,14 @@ import mraa
 #Funcao para interrupcao: Abre o portao
 def abrePortao(args):
         #Setando a velocidade e a direcao do motor:
-        myUln200xa.setSpeed(5) # 5 RPMs, é a velocidade de rotação do motor
+        myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotacao do motor
         myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CW) #sentido horario
         
         #Para escrever no lcd e fazer o motor rodar
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Abrindo o portao...")
-        myUln200xa.stepperSteps(300)    #setando os passos do motor. Nessa forma, o motor dará 3 voltas completas
+        myUln200xa.stepperSteps(300)    #setando os passos do motor. Nessa forma, o motor dara 3 voltas completas
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Portao aberto.")
@@ -24,14 +24,14 @@ def abrePortao(args):
 #Funcao para interrupcao: Fecha o portao
 def fechaPortao(args):
         #Setando a velocidade e a direcao do motor:
-        myUln200xa.setSpeed(5) # 5 RPMs, é a velocidade de rotação do motor
+        myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotacao do motor
         myUln200xa.setDirection(upmULN200XA.ULN200XA.DIR_CCW) #sentido anti-hora
 
         #Para escrever no lcd e fazer o motor rodar
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Fechando o portao...")
-        myUln200xa.stepperSteps(300)   #setando os passos do motor. Nessa forma, o motor dará 3 voltas completas  
+        myUln200xa.stepperSteps(300)   #setando os passos do motor. Nessa forma, o motor dara 3 voltas completas  
         myLcd.clear()
         myLcd.setCursor(0,0)
         myLcd.write("Portao fechado.")
@@ -42,8 +42,8 @@ def fechaPortao(args):
 # This was tested with the Grove Geared Step Motor with Driver                  
                                                                                 
 # Instantiate a ULN2003XA stepper object
-#Os passos padrões do motor é o primeiro parametro (4096).
-#8, 9, 10 e 11 são os pinos da Edson utilizados
+#Os passos padroes do motor eh o primeiro parametro (4096).
+#8, 9, 10 e 11 sao os pinos da Edson utilizados
 myUln200xa = upmULN200XA.ULN200XA(4096, 8, 9, 10, 11)                           
                                                                                 
 ## Exit handlers ##                                                             
@@ -64,11 +64,11 @@ signal.signal(signal.SIGINT, SIGINTHandler)
 #setando pinos para interrupcao:                                                
 x = mraa.Gpio(2)        #Setando pino 1                                         
 x.dir(mraa.DIR_IN)      #Setando como INPUT                                     
-x.isr(mraa.EDGE_BOTH, abrePortao, abrePortao)   #setando a interrupção. Ao apertar o botao, chamara a funcao abrePortao                                 
+x.isr(mraa.EDGE_BOTH, abrePortao, abrePortao)   #setando a interrupcao. Ao apertar o botao, chamara a funcao abrePortao                                 
                                                                                 
 x = mraa.Gpio(3)        #Setando pino 1                                         
 x.dir(mraa.DIR_IN)      #Setando como INPUT                                     
-x.isr(mraa.EDGE_BOTH, fechaPortao, fechaPortao)  #setando a interrupção. Ao apertar o botao, chamara a funcao fechaPortao  
+x.isr(mraa.EDGE_BOTH, fechaPortao, fechaPortao)  #setando a interrupcao. Ao apertar o botao, chamara a funcao fechaPortao  
 
 #Inicializando o lcd
 myLcd = lcd.Jhd1313m1(0, 0x3E, 0x62)
