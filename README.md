@@ -94,6 +94,9 @@ def abrePortao(args):
 
 Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide cliente.py, server.py e a pasta Fotos e Vídeos. 
 
+## Algumas Observações
+O nosso código foi desenvolvido passo a passo, por exemplo, no modo 2, primeiro desenvol-veu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
+
 #Desenvolvedores
 Gustavo Cesar Leite de Oliveira Santos RA: 558311
 
