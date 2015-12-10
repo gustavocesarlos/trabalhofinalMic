@@ -27,11 +27,11 @@ Na pasta fotos e vídeos você poderá encontrar vídeos sobre o funcionamento d
 
 #O Projeto
 
-A seguir, uma foto do nosso projeto completo e funcionando, ou seja, servidor, cliente, camera para filmagem e captura de rostos, moto, LCD, 2 botões e whatsapp funcionando corretamente:
+A seguir, uma foto do nosso projeto completo e funcionando, ou seja, servidor, cliente, camera para filmagem e captura de rostos, motor de passo, LCD, 2 botões e whatsapp funcionando corretamente:
 
 ![](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151204_165742.jpg)
 
-Como já mencionado, os seguintes componentes são utilizados utilizados:
+Como já mencionado, os seguintes componentes são utilizados:
 
 Placa Intel Edison;
 
@@ -47,11 +47,15 @@ Um aplicativo whatssapp configurado para receber as imagens capturadas pela câm
 
 Uma fonte de tensão contínua de 5 Volts.
 
-Para ver nosso projeto funcionando, há um vídeo na pasta Fotos e Vídeos mostrando o funcionamento. Como dito anteriormente, há duas maneiras diferentes de fazer o projeto funcionar.
+Para ver nosso projeto funcionando, há vídeos na pasta Fotos e Vídeos mostrando o funcionamento. Como dito anteriormente, há duas maneiras diferentes de fazer o projeto funcionar.
+
+* ### Modo 1
 
 No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicionada corretamente, ela irá captar rostos, capturar imagens e enviar essas imagens para o whatsapp configurado. Isso é feito utilizando sockets, código programado em python, e uma rede de internet. A qualidade de imagem e velocidade de resposta da webcam depende da conexão local. Uma conexão ruim gera imagens e um vídeo muito lento.
 
-No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertão um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LED mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
+* ### Modo 2
+
+No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertar um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LCD mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
 
 
 def fechaPortao(args):
