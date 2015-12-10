@@ -57,7 +57,7 @@ No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicio
 
 No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertar um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LCD mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
 
-
+```python
 def fechaPortao(args):
 
         myUln200xa.setSpeed(5) # 5 RPMs, eh a velocidade de rotcao do motor
@@ -74,8 +74,9 @@ def fechaPortao(args):
         myLcd.write("Portao fechado.")
         
         time.sleep(1)    #programa "dorme" por 1 segundo
-        
+```
 
+```python
 def abrePortao(args):
 
         myUln200xa.setSpeed(5) 
@@ -89,6 +90,7 @@ def abrePortao(args):
         myLcd.setCursor(0,0)
         myLcd.write("Portao aberto.")
         time.sleep(1)
+```
 
 Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide cliente.py, server.py e a pasta Fotos e Vídeos. 
 
