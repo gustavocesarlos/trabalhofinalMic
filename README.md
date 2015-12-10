@@ -49,11 +49,11 @@ Uma fonte de tensão contínua de 5 Volts.
 
 Para ver nosso projeto funcionando, há vídeos na pasta Fotos e Vídeos mostrando o funcionamento. Como dito anteriormente, há duas maneiras diferentes de fazer o projeto funcionar.
 
-* ### Modo 1
+### Modo 1
 
 No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicionada corretamente, ela irá captar rostos, capturar imagens e enviar essas imagens para o whatsapp configurado. Isso é feito utilizando sockets, código programado em python, e uma rede de internet. A qualidade de imagem e velocidade de resposta da webcam depende da conexão local. Uma conexão ruim gera imagens e um vídeo muito lento.
 
-* ### Modo 2
+### Modo 2
 
 No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertar um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LCD mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
 
