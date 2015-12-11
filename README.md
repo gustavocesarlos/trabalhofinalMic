@@ -56,7 +56,9 @@ Para ver nosso projeto funcionando, há vídeos na pasta Fotos e Vídeos mostran
 
 ### Modo 1
 
-No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicionada corretamente, ela irá captar rostos, capturar imagens e enviar essas imagens para o whatsapp configurado. Isso é feito utilizando sockets, código programado em python, e uma rede de internet. A qualidade de imagem e velocidade de resposta da webcam depende da conexão local. Uma conexão ruim gera imagens e um vídeo muito lento.
+No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicionada corretamente, ela irá captar rostos, capturar imagens e enviar essas imagens para o whatsapp configurado. Isso é feito utilizando sockets, código programado em python, e uma rede de internet. A qualidade de imagem e velocidade de resposta da webcam depende da conexão local. Uma conexão ruim gera imagens e um vídeo muito lento. A seguir, uma imagem demonstrando o envio duma imagem gerada e enviada para whatsapp. Observe o retângulo envolta da face. Posteriormente, explicaremos o que acontece:
+
+![](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/rpovTWzy.jpg)
 
 Para a execução desse modo, deverá ser executado o código detect3.py, que funcionará como servidor, e o arquivo client.py, que será o cliente. Nesse modo, o cliente se conectará ao servidor e, então, a câmera começará a detectar as imagens. Quando encontrar um rosto, uma foto será gerada e salvada como um arquivo de imagem. Este arquivo é o que será enviado para o whatapp configurado. Abaixo, alguns códigos para explicar melhor o funcionamento deste modo:
 
@@ -186,3 +188,4 @@ E, a seguir, o uso de uma fonte, com uma tensão fixa de 5 Volts e corrente fixa
 * O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
 * Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
 * O arquivo haarcascade_frontalface_alt.xml faz parte da bilbioteca openCV e é responsável pela detecção de faces quando a câmera estiver ativa. Uma parte do código detect3.py faz uso deste arquivo, e foi especificado no tópico Modo 1, detect3.py.
+* A biblioteca utilizada para a configuração do whatsapp, yowsup, deve estar atualizada juntamente com a última versão do aplicativo. Caso o aplicativo for atualizado e a biblioteca não, então o envio da imagem não será possível, mas o salvamaneto da imagem ocorrerá sempre.
