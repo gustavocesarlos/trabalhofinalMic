@@ -117,7 +117,7 @@ Apenas atente-se que, para sair do programa, basta digitar a letra "q".
 
 Estes são os dois arquivos referentes à configuração do whatsapp que deve ser feita anteriormente à execução dos arquivos detect.py e cliente.py, para configurar o whatsapp que receberá as imagens e, também, como será a recepção e o salvamento da imagem que será enviada para o mesmo.
 
-```C++
+```python
 cc=55
 mcc=724
 mnc=04
@@ -171,6 +171,7 @@ Observe que foram utilizadas funções para tal. Como mencionado anteriormente, 
 ## Algumas Observações
 * O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
 * Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
+* O arquivo haarcascade_eye.xml faz parte da bilbioteca openCV e é responsável pela detecção de olhos quando a câmera estiver ativa. Uma parte do código detect3.py faz uso desse código.
 
 #Desenvolvedores
 Gustavo Cesar Leite de Oliveira Santos RA: 558311
