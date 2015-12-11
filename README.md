@@ -1,3 +1,8 @@
+#Desenvolvedores
+
+* Gustavo Cesar Leite de Oliveira Santos RA: 558311
+* Rodolfo Barcelar RA: 495921
+
 # Trabalho Final Microcontroladores e Aplicações - 2015/s2
 
 Este trabalho foi desenvolvido como parte da ementa da disciplina Microcontroladores e Aplicações.
@@ -181,8 +186,3 @@ E, a seguir, o uso de uma fonte, com uma tensão fixa de 5 Volts e corrente fixa
 * O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
 * Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
 * O arquivo haarcascade_frontalface_alt.xml faz parte da bilbioteca openCV e é responsável pela detecção de faces quando a câmera estiver ativa. Uma parte do código detect3.py faz uso deste arquivo, e foi especificado no tópico Modo 1, detect3.py.
-
-#Desenvolvedores
-Gustavo Cesar Leite de Oliveira Santos RA: 558311
-
-Rodolfo Barcelar RA: 495921
