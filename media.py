@@ -3,11 +3,11 @@ from wasend import YowsupSendStack
 #from wareceive import YowsupReceiveStack, MessageReceived
 
 def credential():
-    return "5519983630573","=VDdLcMfAkKV+TPxNOv+cRIoC7/M="
+    return "55XXXXXXXXXXX","=VDdLcMfAkKVXXXXXXXXXXXXXXXX="
 
 def Answer():
     try:
-        stack=YowsupSendStack(credential(), ["5512981213965", "saida.png"])
+        stack=YowsupSendStack(credential(), ["55XXXXXXXXXXX", "saida.png"])
         stack.start()
     except:
         pass
