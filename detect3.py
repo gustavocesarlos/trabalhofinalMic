@@ -3,7 +3,7 @@ import numpy
 import socket
 import os
 from wamedia import*
-from media2 import credential, Answer
+from media import credential, Answer
 #############
 TCP_IP = ''
 TCP_PORT = 5052
