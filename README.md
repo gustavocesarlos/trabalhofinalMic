@@ -189,3 +189,27 @@ E, a seguir, o uso de uma fonte, com uma tensão fixa de 5 Volts e corrente fixa
 * Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
 * O arquivo haarcascade_frontalface_alt.xml faz parte da bilbioteca openCV e é responsável pela detecção de faces quando a câmera estiver ativa. Uma parte do código detect3.py faz uso deste arquivo, e foi especificado no tópico Modo 1, detect3.py.
 * A biblioteca utilizada para a configuração do whatsapp, yowsup, deve estar atualizada juntamente com a última versão do aplicativo. Caso o aplicativo for atualizado e a biblioteca não, então o envio da imagem não será possível, mas o salvamaneto da imagem ocorrerá sempre.
+
+## Outros trabalhos desta disciplina
+
+https://github.com/Power041/cancela
+
+https://github.com/jblsouza/Lab-Mic-A
+
+https://github.com/iksmada/TuringMachine
+
+https://github.com/Fonseka100/MIC-Amaciante
+
+https://github.com/matheusvervloet/girassolar
+
+https://github.com/alex-dias/TrabalhoFinalMIC2015
+
+https://github.com/gustavocesarlos/trabalhofinalMic
+
+https://github.com/gabrielNT/LabMicApl_TrabalhoFinal
+
+https://github.com/brunowilliamsap/microcontroladores
+
+https://github.com/rodrigoa1990/Projeto-Microcontroladores
+
+https://github.com/matheusDeAlmeida/trabalhoFinalMicrocontroladores
