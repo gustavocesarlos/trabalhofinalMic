@@ -53,11 +53,83 @@ Para ver nosso projeto funcionando, há vídeos na pasta Fotos e Vídeos mostran
 
 No primeiro modo, a câmera irá funcionar captando imagens do ambiente. Posicionada corretamente, ela irá captar rostos, capturar imagens e enviar essas imagens para o whatsapp configurado. Isso é feito utilizando sockets, código programado em python, e uma rede de internet. A qualidade de imagem e velocidade de resposta da webcam depende da conexão local. Uma conexão ruim gera imagens e um vídeo muito lento.
 
-Para a execução desse modo,
+Para a execução desse modo, deverá ser executado o código detect3.py, que funcionará como servidor, e o arquivo client.py, que será o cliente. Nesse modo, o cliente se conectará ao servidor e, então, a câmera começará a detectar as imagens. Quando encontrar um rosto, uma foto será gerada e salvada como um arquivo de imagem. Este arquivo é o que será enviado para o whatapp configurado. Abaixo, alguns códigos para explicar melhor o funcionamento deste modo:
+
+* detect3.py
+
+```python
+encode_param = [int(cv2.IMWRITE_JPEG_QUALITY),90]	
+	# capturar de quadro em quadro
+	ret, frame =  video_capture.read()
+	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+	faces = faceCascade.detectMultiScale(gray, 1.3, 5)
+```
+
+o código acima é o responsável por iniciar a câmera, ou seja, a captura de imagens e, além disso, iniciar a detecção de faces. 
+
+```python
+for (x,y,w,h) in faces:
+		cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
+		roi_gray = gray[y:y+h, x:x+w]
+		roi_color = frame[y:y+h, x:x+w]
+
+	if len(faces)>0:                                                        
+                cv2.imwrite('saida.png', frame)
+		os.system("yowsup-cli demos -s 55XXXXXXXXXXX \"Sua casa esta sendo invadida\" -c whatsapp.config")
+		stack = SendMediaStack(credential(), [(["55XXXXXXXXXXX”, "saida.png"])])
+            	stack.start()
+```
+O código acima é responsável por formar um retângulo em volta de um rosto, quando um é encontrado. Dessa forma, temos um indicativo de que uma face foi encontrada e que uma imagem foi gerada. Inclusive, na imagem salva, este retângulo estará presente, delimitando o rosto capturado.
+
+```python
+result, imgencode = cv2.imencode('.jpg',frame, encode_param)
+	data = numpy.array(imgencode)
+	stringData = data.tostring()
+	conn.send(str(len(stringData)).ljust(16));
+	conn.send(stringData)
+```
+
+E, finalmente, temos a parte do código responsável por enviar a imagem para o cliente. Observe que é necessário a formulação de um pacote, ou seja, a imagem é convertida em um vetor de string e este, por sua vez, será enviado pela conexão entre o cetect3.py e o client.py.
+
+* client.py
+
+Este código não tem nenhum segredo. Ele, basicamente, recebe o pacote gerado por detect3.py, o decodifica, uma vez que o pacote recebido é um vetor de strings, e então gera a imagem e a exibe:
+```python
+while True:
+    # Recebe tamanho da imagem
+    length = recvall(conn,16)
+    # Recebe imagem propriamente
+    stringData = recvall(conn, int(length))
+    # Recupera a imagem serializada em forma de string
+    data = numpy.fromstring(stringData, dtype='uint8')
+    # Decodifica a imagem
+    decimg=cv2.imdecode(data,1)
+    # Exibe a imagem
+    cv2.imshow('EdisonCAM',decimg)
+    # Se digitar 'q', encerra.
+    if(cv2.waitKey(1) & 0xFF == ord('q')):
+        break
+```
+Apenas atente-se que, para sair do programa, basta digitar a letra "q".
+
+* wamedia.py e whatsapp.config
+
+Estes são os dois arquivos referentes à configuração do whatsapp que deve ser feita anteriormente à execução dos arquivos detect.py e cliente.py, para configurar o whatsapp que receberá as imagens e, também, como será a recepção e o salvamento da imagem que será enviada para o mesmo.
+
+```C++
+cc=55
+mcc=724
+mnc=04
+phone=55XXXXXXXXXXX
+id=0000000000
+password=VDdLcMfAkKV+TPxNOv+cRIoC7/M=
+```
+Este é o código do arquivo whatsapp.config. Observe o campo "phone". É neste campo que deve ser inserido o número de telefone para o qual receberá as imagens. 
 
 ### Modo 2
 
-No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertar um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e cliente.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LCD mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
+No segundo modo, novamente temos a webcam capturando as imagens do ambiente, mas, agora, um usuário poderá visualizar a imagem e, se quiser, apertar um botão para abrir ou fechar um portão, simulado pelo motor de passos. Executando o arquivo server.py e client.py, a câmera será iniciada, filmando o ambiente. Este programa ficará apenas captando imagens. Caso o usuário aperte algum botão, uma mensagem será msotrada no LCD correspondente à abertura ou fechamento do portão. Ao mostrar essa mensagem, o motor será acionado e, novamente, o LCD mostrará a condição em que se encontra o portão ("Aberto" ou "Fechado"). Para que o portão seja fechado, basta apertar o outro botão, correspondente ao fechamento do portão, ou seja, o motor de passos girará no sentido contrário ao da abertura. A seguir, a parte do código que corresponde à abertura e fechamento do portão, justamente com o acionamento do LCD:
 
 ```python
 def fechaPortao(args):
@@ -94,10 +166,11 @@ def abrePortao(args):
         time.sleep(1)
 ```
 
-Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide cliente.py, server.py e a pasta Fotos e Vídeos. 
+Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide client.py, server.py e a pasta Fotos e Vídeos. 
 
 ## Algumas Observações
-O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
+* O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
+* Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
 
 #Desenvolvedores
 Gustavo Cesar Leite de Oliveira Santos RA: 558311
