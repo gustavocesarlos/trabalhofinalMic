@@ -168,6 +168,15 @@ def abrePortao(args):
 
 Observe que foram utilizadas funções para tal. Como mencionado anteriormente, o acionamento dos botões gera uma interrupção no programa, não afetando a captura de imagens. De acordo com o botão acionado, a interrupção levará o programa a executar a função correspondente. Para maiores detalhes de código e de ligações, vide client.py, server.py e a pasta Fotos e Vídeos. 
 
+A foto a seguir mostra os botões, o LCD, o arduino e os fios em suas ligações:
+![](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151204_165738.jpg)
+
+A foto a seguir mostra o uso do chip uln2003 para o correto funcionamento do motor de passo:
+![](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151204_165703.jpg)
+
+E, a seguir, o uso de uma fonte, com uma tensão fixa de 5 Volts e corrente fixa de 3 Ampères:
+![](https://github.com/gustavocesarlos/trabalhofinalMic/blob/master/Fotos%20e%20V%C3%ADdeos/20151204_165752.jpg)
+
 ## Algumas Observações
 * O nosso código foi desenvolvido passo a passo. Por exemplo, no modo 2, primeiro desenvolveu-se um código para o LCD, depois um código para o motor de passos e, por fim, o programa servidor. Ao terminar o programa servidor, todos esses três códigos foram unidos, gerando o código final. Para visualizar os códigos referentes a alguns desses passos, vide os códigos postados, como o lcd.py e o MotorDePasso.py.
 * Aconselhamos não utilizar um número comum, uma vez que as configurações padrões do aplicativo serão modificados. Em nossos experimentos, utilizamos um chip telefônico em desuso para os testes, uma vez que seria necessário a desinstalação e reinstalação do aplicativo em seu telefone para que o mesmo volte às configurações iniciais.
